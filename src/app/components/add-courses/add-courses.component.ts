@@ -11,7 +11,7 @@ import jwt_decode from 'jwt-decode';
 export class AddCoursesComponent implements OnInit {
   addFormCours!: FormGroup
   cour: any = {}
-  // teachers: any=[];
+  teachers: any=[];
   // teacherId:any;
 
   // students:any=[];
@@ -23,7 +23,6 @@ export class AddCoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe((response) => {
-      console.log("here data from BE", response.users);
       // Filtrer les utilisateurs avec le rôle 'teacher'
       // this.teachers =response.users.filter((user:any) => user.role == 'teacher');
       // this.students = response.users.filter((user:any)=> user.role =='student');
