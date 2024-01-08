@@ -1,0 +1,27 @@
+<div >
+    <div class="single-contact-address d-flex flex-row">
+       
+        <div >
+            <h1 style="margin-bottom: 30px; margin-left: 350px;">Details cours</h1>
+           
+        </div>
+    </div>
+    
+                                                       
+</div>
+<div class="row"> 
+<div *ngIf="cour" class="col-md-4">
+    <h2>Cours Details</h2>
+    <p> {{ cour._id }}</p>
+    <p> {{ cour.nameCour }}</p>
+    <p> {{ cour.description }}</p>
+    <p> {{ cour.dure }}</p>
+  
+    <h3>students Affected</h3>
+    <ul>
+      <li *ngFor="let student of cour.students">
+        {{ student.firstName }} {{ student.lastName }}
+      </li>
+    </ul>
+  </div>
+</div>

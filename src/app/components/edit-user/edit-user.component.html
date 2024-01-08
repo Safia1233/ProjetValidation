@@ -1,0 +1,72 @@
+
+<section class="contact-page-area section-gap">
+    <div class="container">
+        <!-- <div class="row"> -->
+            <!-- <div class="map-wrap" ></div>  -->
+            <div >
+                <div class="single-contact-address d-flex flex-row">
+                   
+                    <div >
+                        <h1 style="margin-bottom: 30px; margin-left: 350px;">Edit User</h1>
+                       
+                    </div>
+                </div>
+                
+               													
+            </div>
+           <!-- Sign up user  et admin ------------------------------------------------------------->
+     <div>
+    <div class="col-lg-12">
+     <form #editFormUser="ngForm" (ngSubmit)="editUser()">
+      <div class="row">	
+        <div class="col-lg-12 form-group">
+          <div class="form-group">
+            <input type="text" name="a" [(ngModel)]="user.firstName" class="common-input mb-20 form-control" placeholder="First Name">
+             </div>
+            
+          <div class="form-group">
+         <input type="text" name="b" [(ngModel)]="user.lastName" class="common-input mb-20 form-control" placeholder="Last Name">
+          </div >
+        
+         <div class="form-group">
+             <input type="email" name="c"[(ngModel)]="user.email" class="common-input mb-20 form-control" placeholder="Email" >
+        </div>
+       
+     
+            <div class="form-group">
+              <input type="number" name="d"[(ngModel)]="user.tel" class="common-input mb-20 form-control" placeholder="Tel" >
+          </div>
+      
+
+           <div class="form-group">
+                 <input type="text" name="e" [(ngModel)]="user.adresse" class="common-input mb-20 form-control" placeholder="Adresse" >
+             </div>
+             <div class="form-group" *ngIf="path == '/signupTeacher'">
+                <input type="text" name="f" [(ngModel)]="user.speciality" class="common-input mb-20 form-control" placeholder="speciality" >
+            </div>
+            <div class="form-group" *ngIf="path == '/signupParent'">
+                <input type="text" name="g" [(ngModel)]="user.telEnfant" class="common-input mb-20 form-control" placeholder="telEnfant" >
+            </div>
+            <div class="form-group">
+                <input type="text" name="h" [(ngModel)]="user.role" class="common-input mb-20 form-control" placeholder="role" >
+            </div>
+            <div class="form-group" >
+                <input type="text" name="y" [(ngModel)]="user.status" class="common-input mb-20 form-control" placeholder="status" >
+            </div>
+
+           
+           </div>
+
+         <div class="col-lg-12" style="margin-top: 20px;">
+         <div class="alert-msg" style="text-align: center;"></div>
+        <button class="btn btn-primary py-3 px-5" style="float: left;" value="editUser" >Edit User</button>											
+        </div>
+        </div>
+      
+    </form>	
+    <span style="color: red;">{{errorMsg}}</span>
+    </div>
+    </div> 
+<!-- End sign up user  -----------------------------------------------------------------------------> 
+</div>	
+</section>

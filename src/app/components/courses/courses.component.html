@@ -1,0 +1,22 @@
+ <!-- Start popular-course Area -->
+      <section class="popular-course-area section-gap">
+          <div class="container">
+              <div class="row d-flex justify-content-center">
+                  <div class="menu-content pb-70 col-lg-8">
+                      <div class="title text-center">
+                          <h1 class="mb-10">Popular Courses we offer</h1>
+                          <p>There is a moment in the life of any aspiring.</p>
+                      </div>
+                  </div>
+              </div>						
+               <div class="row"> 
+              
+                   <div *ngFor="let c of courses">
+                  <app-cours [coursInput]="c"></app-cours>	
+                      					
+              
+                </div> 
+              </div>
+          </div>	
+      </section>
+      <!-- End popular-course Area -->

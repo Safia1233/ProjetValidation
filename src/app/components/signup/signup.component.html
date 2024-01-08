@@ -1,0 +1,172 @@
+
+<section class="contact-page-area section-gap">
+    <div class="container">
+        <!-- <div class="row"> -->
+            <!-- <div class="map-wrap" ></div>  -->
+            <div >
+                <div class="single-contact-address d-flex flex-row">
+                   
+                    <div >
+                        <h1 style="margin-bottom: 30px; margin-left: 350px;">Sign Up</h1>
+                       
+                    </div>
+                </div>
+                
+               													
+            </div>
+           
+     <div>
+    <div class="col-lg-12">
+     <form [formGroup]="signupForm">
+      <div class="row">	
+        <div class="col-lg-12 form-group">
+          <div class="form-group">
+            <input type="text" name="a" formControlName="firstName" class="common-input mb-20 form-control" placeholder="First Name">
+             </div>
+            <div *ngIf="signupForm.controls['firstName'].invalid && 
+            (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)">
+            <div *ngIf="signupForm.controls['firstName'].errors?.['required']">
+             first Name is required
+            </div>
+             <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']">
+                first Name must have at least 5 caractere
+             </div>
+            </div>
+      <div class="form-group">
+         <input type="text" name="b" formControlName="lastName" class="common-input mb-20 form-control" placeholder="Last Name">
+          </div >
+          <div *ngIf="signupForm.controls['lastName'].invalid && 
+          (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+             <div *ngIf="signupForm.controls['lastName'].errors?.['required']">
+              last Name is required
+             </div>
+             <div *ngIf="signupForm.controls['lastName'].errors?.['minlength']"> 
+                first Name must have at least 5 caractere
+             </div>
+          </div>
+
+         <div class="form-group">
+             <input type="email" name="c"formControlName="email" class="common-input mb-20 form-control" placeholder="Email" >
+        </div>
+        <div *ngIf="signupForm.controls['email'].invalid && 
+         (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)"> 
+       
+        <div *ngIf="signupForm.controls['email'].errors?.['required']">
+         Email is required
+        </div>
+        <div *ngIf="signupForm.controls['email'].errors?.['email']">
+          invalid format
+         </div>
+        </div>
+     
+            <div class="form-group">
+              <input type="number" name="d"formControlName="tel" class="common-input mb-20 form-control" placeholder="Tel" >
+          </div>
+        <div *ngIf="signupForm.controls['tel'].invalid &&
+        (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+         <div *ngIf="signupForm.controls['tel'].errors?.['required']">
+            Tel is require
+         </div>
+         <div *ngIf="signupForm.controls['tel'].errors?.['maxlength']">
+          tel Is invalid
+         </div>
+        </div>
+
+           <div class="form-group">
+                 <input type="text" name="e" formControlName="adresse" class="common-input mb-20 form-control" placeholder="Adresse" >
+             </div>
+           <div *ngIf="signupForm.controls['adresse'].invalid &&
+           (signupForm.controls['adresse'].touched || signupForm.controls['adresse'].dirty)">
+             <div *ngIf="signupForm.controls['adresse'].errors?.['required']">
+                Adresse is required
+             </div>
+             <div *ngIf="signupForm.controls['adresse'].errors?.['minlength']">
+
+             </div>
+           </div>
+
+            <div class="form-group">
+                 <input type="password" name="f" formControlName="pwd" class="common-input mb-20 form-control" placeholder="Password" >
+              </div>
+              <div *ngIf="signupForm.controls['pwd'].invalid
+           && (signupForm.controls['pwd'].touched || signupForm.controls['pwd'].dirty)">
+         
+          <div *ngIf="signupForm.controls['pwd'].errors?.['required']">
+            password is required
+          </div>
+          <div *ngIf="signupForm.controls['pwd'].errors?.['minlength'] || signupForm.controls['pwd'].errors?.['maxlength']">
+           invalid password
+          </div>
+          </div> 
+
+  <!-- Champs spécifiques parent-->
+            <div *ngIf="path == '/signupParent'">
+            <div class="form-group"> 
+            <input type="number" name="d"formControlName="telEnfant" class="common-input mb-20 form-control" placeholder="Tel Enfant" >
+            </div>
+           </div>
+        <div *ngIf="signupForm.controls['telEnfant'].invalid && 
+        (signupForm.controls['telEnfant'].touched || signupForm.controls['telEnfant'].dirty)">
+          <div *ngIf="signupForm.controls['telEnfant'].errors?.['required']">
+          Tel Enfant is required
+          </div>
+          <div *ngIf="signupForm.controls['telEnfant'].errors?.['minlength']">
+            tel Enfant is invalid
+          </div>
+        </div> 
+    
+       
+        <!-- <div *ngIf="user.role=='teacher'" > -->
+          <div *ngIf="path == '/signupTeacher'"> 
+            <!-- Champs spécifiques teacher-->
+            <input type="text" name="speciality" formControlName="speciality" class="common-input mb-20 form-control" placeholder="Speciality">
+          </div>
+          <div *ngIf="signupForm.controls['speciality'].invalid &&
+          (signupForm.controls['speciality'].touched || signupForm.controls['speciality'].dirty)">
+            <div *ngIf="signupForm.controls['speciality'].errors?.['required']">
+             speciality is required
+            </div>
+          </div>
+          <div *ngIf="path == '/signupTeacher'">
+          <div class="form-group" style="visibility: hidden;">
+            <input type="file" name="file" class="form-control" #filePicke (change)="onfileSelected($event)">
+          </div>
+
+
+          <div class="text-center">
+            <button class="btn btn-success"(click)="filePicke.click()">
+              Select Your file
+            </button>
+            <div style="margin-top: 20px;">
+              <img [src]="filePreview" alt="">
+            </div>
+          </div>
+        </div>
+           <!-- Champs spécifiques student-->
+           <div *ngIf="path == '/signupStudent'">
+            <div class="form-group" style="visibility: hidden;">
+              <input type="file" name="img" class="form-control" #filePicker (change)="onImageSelected($event)">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-success"(click)="filePicker.click()">
+                Select Your Avatar
+              </button>
+              <div style="margin-top: 20px;">
+                <img [src]="imagePreview" alt="" width="200px">
+              </div>
+            </div>
+          </div>
+      </div>
+
+         <div class="col-lg-12" style="margin-top: 20px;">
+         <div class="alert-msg" style="text-align: center;"></div>
+        <button class="btn btn-primary py-3 px-5" style="float: left;" value="signup" (click)="signup()"> Sign Up</button>											
+        </div>
+        </div>
+    </form>	
+    <span style="color: red;">{{msgError}}</span>
+    </div>
+    </div> 
+ 
+</div>	
+</section>
