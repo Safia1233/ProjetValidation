@@ -13,20 +13,13 @@ import jwt_decode from 'jwt-decode';
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
   user:any={};
-  loginType:string="";
+  // loginType:string="";
   errorMsg:any
   constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
   }
   login(){
-
-    if (this.loginType == 'email') {
-      console.log("connexion with email",this.user.email);
-    } else {
-      console.log("connexion with tel",this.user.tel);
-    }
-   
     this.userService.login(this.user).subscribe((data)=>{
       console.log("here response from BE",data.msg,data.token);
        // data.token si je suis connecter avec un email existe

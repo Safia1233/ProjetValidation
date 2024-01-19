@@ -11,8 +11,6 @@ export class CourService {
   getAllCours() {
     return this.httpClient.get<{ cours: any }>(this.courUrl);
   }
-
-
   getCourById(id: any) {
     return this.httpClient.get<{ cour: any }>(`${this.courUrl}/${id}`);
   }
@@ -36,5 +34,14 @@ export class CourService {
   getDetailsCourById(courId: any) {
     return this.httpClient.get<{ cour: any }>(`${this.courUrl}/details/${courId}`)
   }
+  getTeacherCourses(teacher:any){
+     return this.httpClient.get<{cours:any}>(`${this.courUrl}/teacherCourses/${teacher}`)
+  }
+  getStudentsCourses(studentId:any){
+    return this.httpClient.get<{cours:any}>(`${this.courUrl}/studentCourses/${studentId}`)
+  }
+  // getDetailsNoteById(courId: any) {
+  //   return this.httpClient.get<{ cour: any }>(`${this.courUrl}/detailsNote/${courId}`)
+  // }
 
 }

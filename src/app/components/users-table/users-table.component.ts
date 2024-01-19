@@ -9,7 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersTableComponent implements OnInit {
   users:any=[];
-  id:any
+  id:any;
+  // user:any
   constructor(private userService:UserService,
    private router:Router) { }
 
@@ -19,6 +20,13 @@ export class UsersTableComponent implements OnInit {
     console.log("here response from BE",response.users);
     this.users=response.users
    })
+  }
+  validate(id:number){
+    this.userService.validate(id).subscribe((response)=>{
+      console.log("here response from BE",response.isUpdated);
+      this.users.status=response.isUpdated;
+      this.router.navigate(['dashboard'])
+    })
   }
   goToDisplay(id:number){
 

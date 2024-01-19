@@ -33,6 +33,14 @@ import { ParentsTableComponent } from './components/parents-table/parents-table.
 import { AffecteStudentComponent } from './components/affecte-student/affecte-student.component';
 import { NoteComponent } from './components/note/note.component';
 import { DetailsCoursComponent } from './components/details-cours/details-cours.component';
+import { UniversiteComponent } from './components/universite/universite.component';
+import { SearchTeacherComponent } from './components/search-teacher/search-teacher.component';
+import { DisplayNoteComponent } from './components/display-note/display-note.component';
+import { TeacherComponent } from './components/teacher/teacher.component';
+import { SearchChildComponent } from './components/search-child/search-child.component';
+import { TableNotesComponent } from './components/table-notes/table-notes.component';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
+
 
 
 
@@ -69,6 +77,14 @@ import { DetailsCoursComponent } from './components/details-cours/details-cours.
       AffecteStudentComponent,
       NoteComponent,
       DetailsCoursComponent,
+      UniversiteComponent,
+      SearchTeacherComponent,
+      DisplayNoteComponent,
+      TeacherComponent,
+      SearchChildComponent,
+      TableNotesComponent,
+      EditNoteComponent,
+     
       
   
     

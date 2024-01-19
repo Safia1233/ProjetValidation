@@ -33,7 +33,10 @@
         
        
         <td>
-            <button type="button" class="btn btn-outline-warning" (click)="goToDisplay(user._id)">display</button> 
+          <div *ngIf="user.role=='teacher'">
+          <button type="button" class="btn btn-outline-warning" (click)="validate(user._id)">validate</button> 
+          </div>
+          <!-- <button type="button" class="btn btn-outline-warning" (click)="goToDisplay(user._id)">display</button>  -->
             <button type="button" class="btn btn-outline-success" (click)="goToEdit(user._id)">Edite</button>
              <button type="button" class="btn btn-outline-danger" (click)="delete(user._id)">Delete</button>
            

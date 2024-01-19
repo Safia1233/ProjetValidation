@@ -12,6 +12,7 @@
            <!-- <th scope="col">first Name student </th> 
       <th scope="col">Last Name student </th>    -->
         <th scope="col">Action</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -22,14 +23,15 @@
         <td>{{cour.dure}}</td>
         <td>{{cour.teacher.firstName}}</td>
         <td>{{cour.teacher.lastName}}</td>
-         <!-- <td>{{cour.teacher.Speciality}}</td>  -->
-        <!-- <td>{{cour.students.firstName}}</td> 
-       <td>{{cour.students.lastName}}</td>    -->
-        
-        <td>
-            <button type="button" class="btn btn-outline-warning" (click)="goToDisplay(cour._id)">display</button>
-            <button type="button" class="btn btn-outline-success" (click)="goToEdit(cour._id)">Edite</button>
-             <button type="button" class="btn btn-outline-danger" (click)="delete(cour._id)">Delete</button>
+       
+  
+       <td>
+          <button *ngIf="isLoggedIn() && user.role=='teacher'||user.role=='admin'" type="button" class="btn btn-outline-warning" (click)="goToDisplay(cour._id)">
+            Display</button>
+           
+          <button *ngIf="isLoggedIn() && user.role=='student'" type="button" class="btn btn-outline-warning" (click)="goToNote(cour._id)">Select Note </button>
+          <button *ngIf="isLoggedIn() && user.role=='teacher'||user.role=='admin'" type="button" class="btn btn-outline-success" (click)="goToEdit(cour._id)">Edite</button>
+          <button *ngIf="isLoggedIn() && user.role=='teacher'||user.role=='admin'" type="button" class="btn btn-outline-danger" (click)="delete(cour._id)">Delete</button>
            
         </td>
       </tr>

@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   imagePreview:any;
   filePreview:any;
   msgError!:string;
+  test = true;
   constructor(private formBuilder:FormBuilder,
     private router:Router,
     private activateRoute:ActivatedRoute, 
@@ -32,6 +33,7 @@ export class SignupComponent implements OnInit {
       adresse:["",[Validators.required,Validators.minLength(8)]],
       tel:["",[Validators.required,Validators.maxLength(8)]],
       pwd:["",[Validators.required,Validators.minLength(5),Validators.maxLength(8)]],
+      confirmpwd: ["", [Validators.required]],
         speciality:["",[Validators.required]],
        telEnfant:["",[Validators.required,Validators.minLength(8)]],
      
@@ -112,6 +114,21 @@ export class SignupComponent implements OnInit {
 
   }
 
+  matchPwd() {
+    let pwd = this.signupForm.value.pwd;
+    let confirmpwd = this.signupForm.value.confirmpwd;
 
+    if (confirmpwd != "") {
+
+      this.test = false;
+      if (pwd == confirmpwd) {
+        this.test = true;
+      } else {
+        this.test = false;
+      }
+
+
+    }
+  }
  
 }

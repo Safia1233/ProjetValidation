@@ -13,6 +13,12 @@ import { EditCourComponent } from './components/edit-cour/edit-cour.component';
 import { AffecteStudentComponent } from './components/affecte-student/affecte-student.component';
 import { NoteComponent } from './components/note/note.component';
 import { DetailsCoursComponent } from './components/details-cours/details-cours.component';
+import { UniversiteComponent } from './components/universite/universite.component';
+import { SearchTeacherComponent } from './components/search-teacher/search-teacher.component';
+import { DisplayNoteComponent } from './components/display-note/display-note.component';
+import { SearchChildComponent } from './components/search-child/search-child.component';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
+
 
 
 const routes: Routes = [
@@ -40,7 +46,11 @@ const routes: Routes = [
  {path:"editCour/:id",component:EditCourComponent},
  {path:"addNote",component:NoteComponent},
  {path:"detailsCour/:courId",component:DetailsCoursComponent},
- 
+ {path:"universiteApi",component:UniversiteComponent},
+ {path:"searchTeacher",component:SearchTeacherComponent},
+ {path:"selectNote/:user",component:DisplayNoteComponent},
+ {path:"searchChild",component:SearchChildComponent},
+ {path:"editNote/:id",component:EditNoteComponent},
 
 ];
 

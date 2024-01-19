@@ -1,0 +1,48 @@
+<div >
+    <div class="single-contact-address d-flex flex-row">
+        <div >
+            <h1 style="margin-bottom: 30px; margin-left: 400px;"></h1>
+        </div>
+    </div>                                                  
+</div>
+<div class="row"> 
+  <div class="col-md-8 mx-auto">
+    <div *ngIf="note" class="text-center">
+      <h3 class="mb-4">Détails des notes</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Nom du cours</th>
+            <th scope="col">Nom Teacher</th>
+            <th scope="col">Note</th>
+            <th scope="col">Évaluation</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+          <tr>
+            
+            <td *ngIf="note">{{ note.cour?.nameCour }}</td>
+            <td *ngIf="note && note.cour && note.cour.teacher">{{ note.cour.teacher.firstName }} {{ note.cour.teacher.lastName }}</td>
+            <td >{{ note.note }}</td>
+             <td> {{ note.evaluation }}</td>
+          
+          </tr>
+        
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+    

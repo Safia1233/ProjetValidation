@@ -46,4 +46,15 @@ export class UserService {
  affectStudent(obj:any){
     return this.httpClient.post<{msg:string}>(this.userUrl+"/affecteStudent",obj)
  }
+ validate(id:any){
+  return this.httpClient.get<{isUpdated:boolean}>(`${this.userUrl+"/validation"}/${id}`);
+  }
+  searchTeacher(id:any){
+    return this.httpClient.get<{teachers:any}>(`${this.userUrl+"/searchTeacher"}/${id}`)
+  }
+  searchNumChild(user:any){
+    return this.httpClient.post<{student:any}>(this.userUrl+"/searchChild",user)
+  }
+  
+
 }

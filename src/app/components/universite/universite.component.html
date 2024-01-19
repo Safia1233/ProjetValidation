@@ -1,0 +1,43 @@
+<section class="contact-page-area section-gap">
+    <div class="container">
+        <div>
+            <div class="single-contact-address d-flex flex-row">
+                <div>
+                    <h1 style="margin-bottom: 30px; margin-left: 350px;">Search université</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <form [formGroup]="universiteForm">
+                <div class="row">
+                    <div class="col-lg-12 form-group">
+                        <div class="form-group">
+                            <input type="text" name="a" formControlName="country" class="common-input mb-20 form-control" placeholder="Country">
+                        </div>
+                        <div *ngIf="universiteForm.controls['country'].invalid &&
+                            (universiteForm.controls['country'].touched || universiteForm.controls['country'].dirty)">
+                            <div *ngIf="universiteForm.controls['country'].errors?.['required']">
+                               country is required
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12" style="margin-top: 20px;">
+                            <div class="alert-msg" style="text-align: center;"></div>
+                            <button class="btn btn-primary py-3 px-5" style="float: left;" value="search" (click)="search()"> Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div *ngIf="universiteResult">
+                <ul>
+                  <li>  
+                <p style="color: black;">Name: {{ universiteResult.name }}</p> 
+                <p style="color: black;">Country: {{ universiteResult.country }}</p> 
+                 <p style="color: black;">Domains: {{ universiteResult.domains }}</p>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

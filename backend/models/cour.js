@@ -17,7 +17,10 @@ const courSchema= mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref:"User"
     },
-    
+    note : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Note"
+        },
 })
  
 

@@ -1,0 +1,40 @@
+<section class="contact-page-area section-gap">
+    <div class="container">
+        <div>
+            <div class="single-contact-address d-flex flex-row">
+                <div>
+                    <h1 style="margin-bottom: 30px; margin-left: 350px;">Search Teacher</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <form #teacherSearchForm="ngForm" (ngSubmit)="searchTeacher()">
+                <div class="row">
+                    <div class="col-lg-12 form-group">
+                        <div class="form-group">
+                            <input type="text" placeholder="Speciality" [(ngModel)]="teacher.speciality"name="a"
+                             class="common-input mb-20 form-control" 
+                            #pName="ngModel"
+                            [ngClass]="{ 'is-invalid': teacherSearchForm.submitted && pName.invalid }" required minlength="3">
+                        </div>
+                        <div *ngIf="teacherSearchForm.submitted && pName.invalid" class="invalid-feedback">
+                            <p *ngIf="pName.errors?.['required']">Speciality is required</p>
+                            <p *ngIf="pName.errors?.['minlength']">Speciality : 3</p>
+                        </div>
+
+                        <div class="col-lg-12" style="margin-top: 20px;">
+                            <div class="alert-msg" style="text-align: center;"></div>
+                            <button class="btn btn-primary py-3 px-5" style="float: left;" value="search"> Search</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+            <p style="color: black;">First Name:{{ teacher.firstName}}</p>
+            <p style="color: black;">Last Name:{{ teacher.lastName}}</p>
+            <p style="color: black;">Tel:{{ teacher.tel}}</p>
+            <span style="color: red;">{{errorMsg}}</span>
+        </div>
+    </div>
+</section>

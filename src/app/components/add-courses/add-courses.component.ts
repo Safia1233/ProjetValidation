@@ -35,10 +35,8 @@ export class AddCoursesComponent implements OnInit {
     let token = sessionStorage.getItem("token");
     let user: any = this.decodeToken(token);
     this.cour.teacher = user.id;
-
-
     this.courservice.addCour(this.cour, this.img).subscribe((response) => {
-      console.log("here response from BE", response.msg);
+    console.log("here response from BE", response.msg);
 
     })
   }

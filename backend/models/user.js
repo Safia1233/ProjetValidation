@@ -15,14 +15,14 @@ const userSchema = mongoose.Schema({
     img:String,
     file:String,
 
-    cour: {
+    cour: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Cours"
-      },
-     note:{
+      }],
+     notes:[{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Note"
-    }
+    }]
 })
 // create user Model
 const user = mongoose.model("User", userSchema);

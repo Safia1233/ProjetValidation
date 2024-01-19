@@ -2,7 +2,7 @@
     <div class="single-contact-address d-flex flex-row">
        
         <div >
-            <h1 style="margin-bottom: 30px; margin-left: 350px;">Details cours</h1>
+            <h1 style="margin-bottom: 30px; margin-left: 400px;"></h1>
            
         </div>
     </div>
@@ -10,14 +10,49 @@
                                                        
 </div>
 <div class="row"> 
-<div *ngIf="cour" class="col-md-4">
-    <h2>Cours Details</h2>
-    <p> {{ cour._id }}</p>
-    <p> {{ cour.nameCour }}</p>
-    <p> {{ cour.description }}</p>
-    <p> {{ cour.dure }}</p>
+  <div class="col-md-8 mx-auto">
+    <div *ngIf="cour" class="text-center">
+      <h3 class="mb-4">Cours Details</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name Cours</th>
+            <th scope="col">Description</th>
+            <th scope="col">Students Affected</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: black;">{{ cour.nameCour }}</td>
+            <td style="color: black;">{{ cour.description }}</td>
+            <td>
+              <ul  style="color: black;">
+                <li  *ngFor="let student of cour.students">
+                  {{ student.firstName }} {{ student.lastName }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="row"> 
+  <div class="col-md-8">
+<div *ngIf="cour"  style="margin-left: 400px;">
+    <h3>Cours Details</h3> -->
+    <!-- <p style="color: black;"> {{ cour._id }}</p> -->
+    <!-- <p style="color: black;">Name Cours: {{ cour.nameCour }}</p>
+    <p style="color: black;"> {{ cour.description }}</p> -->
+    <!-- <p style="color: black;"> {{ cour.dure }}</p> -->
   
-    <h3>students Affected</h3>
+    <!-- <h3>students Affected</h3>
     <ul>
       <li *ngFor="let student of cour.students">
         {{ student.firstName }} {{ student.lastName }}
@@ -25,3 +60,4 @@
     </ul>
   </div>
 </div>
+</div> -->

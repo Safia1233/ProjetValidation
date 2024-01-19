@@ -1,0 +1,41 @@
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <!-- <th scope="col"> students</th> -->
+        <th scope="col">cours</th>
+        <th scope="col">Note</th>
+        <th scope="col">Evaluation</th>
+        <!-- <th scope="col">Last Name Teacher</th> -->
+         <!-- <th scope="col">Speciality</th>  -->
+           <!-- <th scope="col">first Name student </th> 
+      <th scope="col">Last Name student </th>    -->
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of notes">
+        <th scope="row">{{note._id}}</th>
+      
+        <td>{{note.cour.nameCour}}</td>
+        <td>{{note.note}}</td>
+        <td>{{note.evaluation}}</td>
+       
+       
+  
+        <td>
+          <button type="button" class="btn btn-outline-warning" (click)="goToDisplay(note._id)"> Display</button>
+          <button  type="button" class="btn btn-outline-success" (click)="goToEdit(note._id)">Edite</button>
+          <button  type="button" class="btn btn-outline-danger" (click)="delete(note._id)">Delete</button>
+           
+        </td> 
+      </tr>
+    
+      
+    </tbody>
+  </table>
+
+
+

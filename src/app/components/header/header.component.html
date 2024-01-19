@@ -30,18 +30,18 @@
           <ul class="nav-menu">
             <li><a routerLink="">Home</a></li>
             <li><a routerLink="courses">courses</a></li>
+            <li><a routerLink="searchTeacher">search Teacher</a></li>
+            <li *ngIf="isLoggedIn() && user.role=='parent'"><a routerLink="searchChild">search Child</a></li>
             
                
-            <li class="menu-has-children"><a href="">Admin</a>
+            <li class="menu-has-children" *ngIf="isLoggedIn() && user.role=='admin'"><a href="">Admin</a>
               <ul>
                 <li><a routerLink="dashboard">Dashboard</a></li>
                  <li><a routerLink="affecteStudent"> Affecte Students</a></li> 
-                
-              
               </ul>
             </li>	
-
-            <li class="menu-has-children"><a href="">Teacher</a>
+            
+            <li class="menu-has-children" *ngIf="isLoggedIn() && user.role=='teacher'"><a href="">Teacher</a>
               <ul>
                 <li><a routerLink="dashbordTeacher">Dashboard Teacher</a></li>
                 <li><a routerLink="addCourse"> Add courses</a></li>
@@ -49,25 +49,32 @@
                 <li><a routerLink=""></a></li>
               </ul>
             </li>	
-            <li class="menu-has-children"><a href="">Students</a>
+          
+            <li class="menu-has-children" *ngIf="isLoggedIn() && user.role=='student'">
+              <a href="">Students</a>
               <ul>
                 <li><a routerLink="dashbordStudent">Dashboard Students</a></li>
                 <li><a routerLink=""> </a></li>
-                <li><a routerLink=""></a></li>
-                
               </ul>
             </li>	
-            <li><a routerLink="signupAdmin">Sign up</a>
+            
+
+            <li  *ngIf="!isLoggedIn()"><a routerLink="signupAdmin">Sign up</a>
               <ul>
-                <li><a routerLink="signupTeacher">signup teacher</a></li>
-                <li><a routerLink="signupStudent"> signup students</a></li>
-                <li><a routerLink="signupParent">  signup parents</a></li>
+                <li *ngIf="!isLoggedIn()"><a routerLink="signupTeacher">signup teacher</a></li>
+                <li *ngIf="!isLoggedIn()"><a routerLink="signupStudent"> signup students</a></li>
+                <li  *ngIf="!isLoggedIn()"><a routerLink="signupParent">  signup parents</a></li>
                 
               </ul>
             </li>
+           
+          
+                
+             
 
-            <li><a routerLink="login">Login</a></li>	
-            <li ><a  (click)="logout()" >Logout</a></li>
+            <li *ngIf="isLoggedIn()"><a class="nav-link" style="color: white;"> welcome {{user.firstName}} {{user.lastName}}</a></li>
+            <li *ngIf="!isLoggedIn()"><a routerLink="login">Login</a></li>	
+            <li *ngIf="isLoggedIn()"><a class="nav-link" (click)="logout()"style="color: white;">Logout</a></li>
           
           </ul>
         </nav><!-- #nav-menu-container -->		    		
